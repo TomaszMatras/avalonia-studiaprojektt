@@ -1,0 +1,37 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:ToDoList.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="700" d:DesignHeight="500"
+             x:Class="ToDoList.Views.AddItemView"
+             x:DataType="vm:AddItemViewModel">
+
+	<UserControl.Styles>
+		<Style Selector="TextBox:focus">
+			<Setter Property="Background">
+				<SolidColorBrush Color="magenta"></SolidColorBrush>
+			</Setter>
+		</Style>
+	</UserControl.Styles>
+
+	<DockPanel Background="red">
+		<Button DockPanel.Dock="Bottom"
+                HorizontalAlignment="Stretch"
+                HorizontalContentAlignment="Center"
+                Command="{Binding CancelCommand}">
+			Anuluj
+		</Button>
+		<Button DockPanel.Dock="Bottom"
+                HorizontalAlignment="Stretch"
+                HorizontalContentAlignment="Center"
+                Command="{Binding OkCommand}">
+			dalej
+		</Button>
+		<TextBox Background="red"
+                 AcceptsReturn="True"
+                 Text="{Binding Description}"
+                 Watermark="Dodaj zadanie">
+		</TextBox>
+	</DockPanel>
+</UserControl>
